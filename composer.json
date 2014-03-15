@@ -1,6 +1,6 @@
 {
-    "name": "codesleeve/platform-core",
-    "description": "Platform core contains the core functionality of platform which is the backend admin panel, users, roles, overall navigation. It also includes general helpers (such as macros)",
+    "name": "codesleeve/platform-publish",
+    "description": "Add on publishing capabilities (pages and menus) to platform-core ",
     "license": "MIT",
     "authors": [
         {
@@ -13,18 +13,14 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0",
-        "illuminate/support": "4.1.*",
-        "codesleeve/asset-pipeline": "dev-master",
-        "codesleeve/stapler": "dev-master",
-        "codesleeve/fixture": "dev-master"
+        "codesleeve/platform-core": "dev-master"
     },
     "autoload": {
         "classmap": [
             "src/migrations"
         ],
         "psr-0": {
-            "Codesleeve\\Platform\\": "src/"
+            "Codesleeve\\PlatformPublish\\": "src/"
         }
     },
     "minimum-stability": "stable"
