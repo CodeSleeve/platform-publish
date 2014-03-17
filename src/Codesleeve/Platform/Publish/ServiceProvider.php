@@ -1,9 +1,8 @@
-<?php namespace Codesleeve\PlatformPublish;
+<?php namespace Codesleeve\Platform\Publish;
 
-use Illuminate\Support\ServiceProvider;
 use App, Config, DirectoryIterator, Redirect, View;
 
-class PublishServiceProvider extends ServiceProvider
+class ServiceProvider extends \Illuminate\Support\ServiceProvider
 {
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -23,11 +22,25 @@ class PublishServiceProvider extends ServiceProvider
 
 		$this->package('codesleeve/platform-publish');
 
+		require_once("{$base}/../../../routes.php");
+
 		$navigation = $this->app['platform.navigation'];
 
-		 //dd($navigation);
+		$navigation->add([
+			'title' => 'Pages',
+			'icon' => 'fa-file',
+			'url' => platform_route('pages.index'),
+			'shown' => can('update', 'Page'),
+			'active' => 'pages',
+		]);
 
-		require_once("{$base}/../../routes.php");
+		$navigation->add([
+			'title' => 'Menus',
+			'icon' => 'fa-link',
+			'url' => platform_route('menus.index'),
+			'shown' => can('update', 'Menu'),
+			'active' => 'menus',
+		]);
 	}
 
 	/**
@@ -63,7 +76,7 @@ class PublishServiceProvider extends ServiceProvider
 	 */
 	protected function bootAssetPipeline($base)
 	{
-		$base = $base . '/../../assets';
+		$base = $base . '/../../../assets';
 
 		$asset = $this->app->make('asset');
 		$config = $asset->getConfig();

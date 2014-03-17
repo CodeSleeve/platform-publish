@@ -20,7 +20,7 @@
             "src/migrations"
         ],
         "psr-0": {
-            "Codesleeve\\PlatformPublish\\": "src/"
+            "\\Codesleeve\\Platform\\Publish\\": "src/"
         }
     },
     "minimum-stability": "stable"
