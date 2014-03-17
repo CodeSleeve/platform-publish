@@ -9,14 +9,12 @@ class PageController extends BaseController
 	/**
 	 * Create a new controller
 	 */
-	public function __construct(Page $pages, PageValidator $validator)
+	public function __construct(Page $pages)
 	{
 		parent::__construct();
 
 		$this->pages = $pages;
-		$this->validator = $validator;
-
-		dd($this);
+		$this->validator = new PageValidator($this->namespaced("PageController"));
 	}
 
 	/**
@@ -71,9 +69,7 @@ class PageController extends BaseController
 	 */
 	public function show($id)
 	{
-		$page = $this->pages->findOrFail($id);
-
-		$this->layout->nest('content', "platform-publish::pages.show", compact('page'));
+		return $this->edit($id);
 	}
 
 	/**
@@ -85,10 +81,6 @@ class PageController extends BaseController
 	public function edit($id)
 	{
 		$page = $this->pages->findOrFail($id);
-
-		$page->available_roles = $this->roles->lists('name', 'id');
-
-		$page->selected_roles = $page->roles()->select('roles.id AS id')->lists('id');
 
 		$this->layout->nest('content', "platform-publish::pages.edit", compact('page'));
 	}
@@ -105,20 +97,13 @@ class PageController extends BaseController
 
 		$page->fill(Input::all());
 
-		if (Input::get('password'))
-		{
-			$page->password = Input::get('password');
-		}
-
 		$this->validator->validate(Input::all(), $page);
 
 		$page->save();
 
-		$page->roles()->sync(Input::get('role_ids', []));
-
 		Session::flash('success', 'Updated page successfully');
 
-		return Redirect::action($this->namespaced("pageController@index"));
+		return Redirect::action($this->namespaced("PageController@index"));
 	}
 
 	/**
@@ -135,6 +120,6 @@ class PageController extends BaseController
 
 		Session::flash('success', 'Record deletion successful!');
 
-		return Redirect::action($this->namespaced("pageController@index"));
+		return Redirect::action($this->namespaced("PageController@index"));
 	}
 }

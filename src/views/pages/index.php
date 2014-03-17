@@ -23,6 +23,7 @@
 		<?php foreach($pages as $page): ?>
 			<tr>
 				<td><?= $page->title ?></td>
+				<td><?= $page->slug ?></td>
 				<td><?= $page->created_at ?></td>
 				<td><?= $page->updated_at ?></td>
 				<td>

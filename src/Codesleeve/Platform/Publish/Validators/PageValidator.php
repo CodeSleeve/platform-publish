@@ -1,4 +1,6 @@
-<?php namespace Codesleeve\Platform\Validators;
+<?php namespace Codesleeve\Platform\Publish\Validators;
+
+use Codesleeve\Platform\Validators\BaseValidator;
 
 class PageValidator extends BaseValidator
 {
