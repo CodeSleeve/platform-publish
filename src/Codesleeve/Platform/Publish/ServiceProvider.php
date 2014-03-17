@@ -24,23 +24,12 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
 		require_once("{$base}/../../../routes.php");
 
-		$navigation = $this->app['platform.navigation'];
+		$this->bootAssetPipeline($base);
 
-		$navigation->add([
-			'title' => 'Pages',
-			'icon' => 'fa-file',
-			'url' => platform_route('pages.index'),
-			'shown' => can('update', 'Page'),
-			'active' => 'pages',
-		]);
+		$this->bootViews($base);
 
-		$navigation->add([
-			'title' => 'Menus',
-			'icon' => 'fa-link',
-			'url' => platform_route('menus.index'),
-			'shown' => can('update', 'Menu'),
-			'active' => 'menus',
-		]);
+		$this->bootNavigation($base);
+
 	}
 
 	/**
@@ -86,5 +75,37 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 		$config['paths'][] = str_replace($config['base_path'] .'/', '', realpath($base . "/vendors"));
 
 		$asset->setConfig($config);
+	}
+
+	/**
+	 * Create the dynamic navigation bars that come with this package
+	 *
+	 * @param  string $base
+	 * @return void
+	 */
+	protected function bootNavigation($base)
+	{
+		$navigation = $this->app['platform.navigation'];
+
+		$navigation->add([
+			'title' => 'Pages',
+			'icon' => 'fa-file',
+			'url' => platform_route('pages.index'),
+			'shown' => can('update', 'Page'),
+			'active' => 'pages',
+		]);
+
+		$navigation->add([
+			'title' => 'Menus',
+			'icon' => 'fa-link',
+			'url' => platform_route('menus.index'),
+			'shown' => can('update', 'Menu'),
+			'active' => 'menus',
+		]);
+	}
+
+	protected function bootViews($base)
+	{
+		View::addNamespace('platform-publish', $base . '/../../../views');
 	}
 }

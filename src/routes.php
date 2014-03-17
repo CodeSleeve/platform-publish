@@ -15,7 +15,7 @@ Route::group(Config::get('platform::routing'), function()
 {
 	Route::group(['before' => 'platform.auth'], function()
 	{
-		$namespace = "Codesleeve\PlatformPublish\Controllers";
+		$namespace = "Codesleeve\Platform\Publish\Controllers";
 
 		// pages
 		Route::resource('pages', "{$namespace}\PageController");

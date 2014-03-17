@@ -10,7 +10,7 @@ First add to composer.json
 then add the service provider to the `providers` array in your `app\config\app.php`
 
 ```
-	'Codesleeve\PlatformPublish\PublishServiceProvider',
+	'Codesleeve\Platform\Publish\ServiceProvider',
 ```
 
 then run commands for database
