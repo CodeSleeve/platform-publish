@@ -25,11 +25,7 @@ class PhotosController extends BaseController
 	 */
 	public function index()
 	{
-		// $photos = $this->photos
-		// 	->orderBy(Input::query('sort_by', 'id'), Input::query('sort_direction', 'ASC'))
-		// 	->paginate();
 
-		// $this->layout->nest('content', "platform-publish::Photos.index", compact('Photos'));
 	}
 
 	/**
@@ -39,8 +35,7 @@ class PhotosController extends BaseController
 	 */
 	public function create()
 	{
-		// $photo = $this->photos->fill(Input::old());
-		// $this->layout->nest('content', "platform-publish::Photos.create", compact('Photo'));
+
 	}
 
 	/**
@@ -69,7 +64,7 @@ class PhotosController extends BaseController
 	 */
 	public function show($id)
 	{
-		// return $this->edit($id);
+
 	}
 
 	/**
@@ -80,9 +75,7 @@ class PhotosController extends BaseController
 	 */
 	public function edit($id)
 	{
-		// $photo = $this->photos->findOrFail($id);
 
-		// $this->layout->nest('content', "platform-publish::Photos.edit", compact('Photo'));
 	}
 
 	/**
@@ -93,17 +86,7 @@ class PhotosController extends BaseController
 	 */
 	public function update($id)
 	{
-		// $photo = $this->photos->findOrFail($id);
 
-		// $photo->fill(Input::all());
-
-		// $this->validator->validate(Input::all(), $photo);
-
-		// $photo->save();
-
-		// Session::flash('success', 'Updated Photo successfully');
-
-		// return Redirect::action($this->namespaced("PhotoController@index"));
 	}
 
 	/**
@@ -114,12 +97,6 @@ class PhotosController extends BaseController
 	 */
 	public function destroy($id)
 	{
-		// $photo = $this->photos->findOrFail($id);
 
-		// $photo->delete();
-
-		// Session::flash('success', 'Record deletion successful!');
-
-		// return Redirect::action($this->namespaced("PhotoController@index"));
 	}
 }
