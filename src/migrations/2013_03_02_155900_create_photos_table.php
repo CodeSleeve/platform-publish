@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMenuLinksTable extends Migration{
+class CreatePhotosTable extends Migration{
 
 	/**
 	 * Make changes to the database.
@@ -12,13 +12,13 @@ class CreateMenuLinksTable extends Migration{
 	 */
 	public function up()
 	{
-		Schema::create('platform_menu_links', function(Blueprint $table)
+		Schema::create('platform_photos', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('menu_id');
-			$table->integer('page_id');
-			$table->string('title');
-			$table->string('url');
+			$table->string("photo_file_name")->nullable();
+			$table->integer("photo_file_size")->nullable();
+			$table->string("photo_content_type")->nullable();
+			$table->timestamp("photo_updated_at")->nullable();
 			$table->timestamps();
 		});
 	}
@@ -30,7 +30,7 @@ class CreateMenuLinksTable extends Migration{
 	 */
 	public function down()
 	{
-		Schema::drop('platform_menu_links');
+		Schema::drop('platform_photos');
 	}
 
 }

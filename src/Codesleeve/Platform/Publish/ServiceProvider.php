@@ -72,7 +72,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
 		$config['paths'][] = str_replace($config['base_path'].'/', '', realpath($base . "/javascripts"));
 		$config['paths'][] = str_replace($config['base_path'] .'/', '', realpath($base . "/stylesheets"));
-		$config['paths'][] = str_replace($config['base_path'] .'/', '', realpath($base . "/vendors"));
 
 		$asset->setConfig($config);
 	}
