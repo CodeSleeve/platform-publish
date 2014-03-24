@@ -22,5 +22,9 @@ Route::group(Config::get('platform::routing'), function()
 
 		// menus
 		Route::resource('menus', "{$namespace}\MenuController");
+
+		// photos
+		Route::post('pages/{id}/photo', ['uses' => "{$namespace}\PhotosController@store", 'as' => 'pages.edit.photos']);
+		Route::post('pages/photo', ['uses' => "{$namespace}\PhotosController@store", 'as' => 'pages.create.photos']);
 	});
 });

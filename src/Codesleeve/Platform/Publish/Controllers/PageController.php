@@ -69,7 +69,7 @@ class PageController extends BaseController
 	 */
 	public function show($id)
 	{
-		return $this->edit($id);
+		return Redirect::action($this->namespaced("PageController@edit"), [$id]);
 	}
 
 	/**

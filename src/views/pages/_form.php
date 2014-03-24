@@ -27,13 +27,13 @@
 	<div class="form-group">
 		<label for="content">Content</label>
 
-		<?= Form::textarea('content', null, ['class' => 'form-control']) ?>
+		<?= render('platform-publish::wysiwyg', ['name' => 'content', 'body' => $page->content]) ?>
 
-		<?= show_message_when('title', $errors) ?>
+		<?= show_message_when('content', $errors) ?>
 	</div>
 
 	<div class="actions">
-		<?= Form::submit('Save', ['class' => 'btn btn-primary']) ?>
+		<?= Form::submit('Save', ['class' => 'btn btn-danger']) ?>
 
 		<span style="padding: 0px 10px;">or</span> <a href="<?= $cancel ?>">Cancel</a>
 	</div>

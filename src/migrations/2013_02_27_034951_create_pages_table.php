@@ -16,7 +16,7 @@ class CreatePagesTable extends Migration
 		{
 			$table->increments('id');
 			$table->string('title');
-			$table->text('content');
+			$table->longText('content');
 			$table->boolean('home_page');
 			$table->string('slug');
 			$table->timestamps();
@@ -30,7 +30,7 @@ class CreatePagesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('pages');
+		Schema::drop('platform_pages');
 	}
 
 }
