@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "codesleeve/platform-core": "dev-master"
+        "codesleeve/platform-core": "0.*"
     },
     "autoload": {
         "classmap": [
