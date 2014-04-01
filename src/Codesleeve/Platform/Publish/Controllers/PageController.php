@@ -56,7 +56,7 @@ class PageController extends BaseController
 
 		$page->save();
 
-		Session::flash('success', 'Created page succesfully');
+		Session::flash('success', 'Created page successfully');
 
 		return Redirect::action($this->namespaced("PageController@index"));
 	}
@@ -69,7 +69,14 @@ class PageController extends BaseController
 	 */
 	public function show($id)
 	{
-		return Redirect::action($this->namespaced("PageController@edit"), [$id]);
+		$page = $this->pages->findBySlug($id);
+
+		if (!$page->layout || $page->layout == 'none')
+		{
+			$page->layout = 'platform-publish::pages.show';
+		}
+
+		$this->layout->nest('content', $page->layout, compact('page'));
 	}
 
 	/**

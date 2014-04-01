@@ -17,11 +17,11 @@
 	</div>
 
 	<div class="form-group">
-		<label for="home_page">Set as home page?</label>
+		<label for="layout">Layout Page</label>
 
-		<?= Form::checkbox("home_page") ?>
+		<?= Form::select('layout', $page->layouts, $page->layout, ['class' => 'form-control']) ?>
 
-		<?= show_message_when('home_page', $errors) ?>
+		<?= show_message_when('layout', $errors) ?>
 	</div>
 
 	<div class="form-group">

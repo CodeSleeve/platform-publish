@@ -14,12 +14,14 @@ class PageValidator extends BaseValidator
         $update = [
             'title' => 'required|max:256',
             'slug'  => 'required|max:256',
+            'layout' => 'max:256',
             'content' => 'required',
         ];
 
         $create = [
             'title' => 'required|max:256',
             'slug'  => 'required|max:256',
+            'layout' => 'max:256',
             'content' => 'required',
         ];
 

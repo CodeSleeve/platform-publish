@@ -27,6 +27,10 @@
 				<td><?= $page->created_at ?></td>
 				<td><?= $page->updated_at ?></td>
 				<td>
+					<a target="_blank" href="<?= platform_route("pages.show", [$page->id]) ?>">
+						<i class="fa fa-globe large-icon"></i>
+					</a>
+
 					<a href="<?= platform_route("pages.edit", [$page->id]) ?>">
 						<i class="fa fa-edit large-icon"></i>
 					</a>
