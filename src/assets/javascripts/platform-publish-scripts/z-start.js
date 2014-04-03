@@ -62,7 +62,12 @@ $(function()
 
 		// when the form is submitted make sure to populate
 		// the nearest hidden content area for our FORM
-	    element.closest('form').on('submit', function (e)
+		$('.platform-form-submit-btn').on('click', function(e)
+		{
+			$('#platform-wysiwyg-form').submit();
+		});
+
+	    element.closest('#platform-wysiwyg-form').on('submit', function (e)
 	    {
 	    	var input = element.prev('[data-wysiwyg-hidden="content"]');
 	        input.val(element.code());

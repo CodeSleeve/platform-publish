@@ -1,4 +1,4 @@
-<?= Form::model($page, ['url' => $url, 'method' => $method, 'class' => 'form']) ?>
+<?= Form::model($page, ['url' => $url, 'method' => $method, 'class' => 'form', 'id' => 'platform-wysiwyg-form']) ?>
 
 	<div class="form-group">
 		<label for="title">Title</label>
@@ -33,7 +33,7 @@
 	</div>
 
 	<div class="actions">
-		<?= Form::submit('Save', ['class' => 'btn btn-danger']) ?>
+		<?= Form::submit('Save', ['class' => 'btn btn-danger platform-form-submit-btn']) ?>
 
 		<span style="padding: 0px 10px;">or</span> <a href="<?= $cancel ?>">Cancel</a>
 	</div>
