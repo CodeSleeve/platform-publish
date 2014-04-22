@@ -24,8 +24,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 
 		require_once("{$base}/../../../routes.php");
 
-		$this->bootAssetPipeline($base);
-
 		$this->bootViews($base);
 
 		$this->bootNavigation($base);
@@ -50,30 +48,6 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
 	public function provides()
 	{
 		return array();
-	}
-
-	/**
-	 * Tweak the configuration for asset pipeline for this application
-	 * so we can use assets inside of the platform's assets directory
-	 *
-	 * We do this 'namespacing' so we don't clutter up our
-	 * main app/assets directory with assets that belongs
-	 * to codesleeve\platform.
-	 *
-	 * @param  string $base
-	 * @return void
-	 */
-	protected function bootAssetPipeline($base)
-	{
-		$base = $base . '/../../../assets';
-
-		$asset = $this->app->make('asset');
-		$config = $asset->getConfig();
-
-		$config['paths'][] = str_replace($config['base_path'].'/', '', realpath($base . "/javascripts"));
-		$config['paths'][] = str_replace($config['base_path'] .'/', '', realpath($base . "/stylesheets"));
-
-		$asset->setConfig($config);
 	}
 
 	/**
