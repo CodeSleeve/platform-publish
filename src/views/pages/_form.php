@@ -27,7 +27,7 @@
 	<div class="form-group">
 		<label for="content">Content</label>
 
-		<?= render('platform-publish::wysiwyg', ['name' => 'content', 'body' => $page->content]) ?>
+		<?= render('platform::wysiwyg', ['name' => 'content', 'body' => $page->content]) ?>
 
 		<?= show_message_when('content', $errors) ?>
 	</div>
