@@ -12,6 +12,13 @@ class Menu extends Eloquent
 	protected $table = 'platform_menus';
 
 	/**
+	 * Always fetch menulinks with a menu
+	 *
+	 * @var array
+	 */
+	protected $with = ['menuLinks'];
+
+	/**
 	 * The fillable array lets laravel know which fields are fillable
 	 *
 	 * @var array

@@ -16,7 +16,7 @@ class CreateMenuLinksTable extends Migration{
 		{
 			$table->increments('id');
 			$table->integer('menu_id');
-			$table->integer('page_id');
+			$table->integer('page_id')->nullable();
 			$table->string('title');
 			$table->string('url');
 			$table->timestamps();
